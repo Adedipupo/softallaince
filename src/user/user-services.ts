@@ -1,5 +1,5 @@
 import express,{Request, Response} from 'express';
-import { UserModel } from "../models/userModel"
+import { UserModel } from "./user-model"
 
 
 class userService {
@@ -28,6 +28,7 @@ class userService {
       })
     }
   }
+
 }
 
 export default userService;

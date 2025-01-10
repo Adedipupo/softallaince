@@ -1,6 +1,6 @@
 
 import { Request, Response } from 'express';
-import userService from '../services/userServices';
+import userService from './user-services';
 
 
 class UserController {

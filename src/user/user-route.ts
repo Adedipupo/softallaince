@@ -1,5 +1,5 @@
 import express from 'express';
-import UserController from '../controllers/userControllers';
+import UserController from './user-controllers';
 
 const router =  express.Router();
 const userController = new UserController();
@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
   res.send("users route");
 });
 
-router.get("/all", userController.getUsers);
+router.get("/k", userController.getUsers);
 
 
 export default router;
