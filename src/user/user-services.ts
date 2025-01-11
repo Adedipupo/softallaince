@@ -1,31 +1,17 @@
-import express,{Request, Response} from 'express';
-import { UserModel } from "./user-model"
+import { UserModel } from "./user-model";
 
 
 class userService {
   /**
-   * @method getAllUsers
-   * @static
-   * @async
-   * @returns {Promise<IUsers>}
+   * Retrieves all users from the database.
+   * @returns Promise containing user data or throws an error.
    */
-
-  static async getAllUsers(req:Request, res:Response) {
+  async getAllUsers() {
     try {
       const users = await UserModel.find();
-
-      if (users) {
-        return res.status(401).json({
-          message: `Users retrieved successfully`,
-          data: users,
-        })
-      }
-    } catch (error) {
-      console.log(error)
-      return res.status(500).json({
-        message: 'Internal Server Error',
-        success: false,
-      })
+      return users;
+    } catch (error: any) {
+      throw new Error(error.message || "Failed to fetch users");
     }
   }
 
