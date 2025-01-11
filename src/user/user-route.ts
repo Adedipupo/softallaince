@@ -1,5 +1,6 @@
 import express from 'express';
 import UserController from './user-controllers';
+import { verifiedUser } from '../middleware';
 
 const router =  express.Router();
 const userController = new UserController();
@@ -9,7 +10,7 @@ router.get("/", (req, res) => {
   res.send("users route");
 });
 
-router.get("/k", userController.getUsers);
+router.get("/users", verifiedUser, userController.getUsers);
 
 
 export default router;
