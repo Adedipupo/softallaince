@@ -1,6 +1,6 @@
 import express from 'express';
 import UserController from './user-controllers';
-import { verifiedUser } from '../middleware';
+import { verifiedUser } from '../../middleware';
 
 const router =  express.Router();
 const userController = new UserController();

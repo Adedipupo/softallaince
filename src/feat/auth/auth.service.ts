@@ -1,9 +1,9 @@
-import { IUserResult } from "../types/types";
-import { UserModel } from "../user/user-model";
-import sendEmail from "../utils/email";
-import Token from "../utils/token";
-import { validateCreateUser } from "../utils/user.validator";
+import { IUserResult } from "../../types/types";
+import sendEmail from "../../utils/email";
+import Token from "../../utils/token";
+import { validateCreateUser } from "../../utils/user.validator";
 import crypto from "crypto";
+import { UserModel } from "../user/user-model";
 
 class AuthService {
   /**
