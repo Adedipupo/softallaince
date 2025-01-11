@@ -10,7 +10,7 @@ COPY package*.json ./
 RUN yarn install
 
 COPY . .
-COPY ./.env ./.env
+COPY ./.env .env
 
 # Final stage
 FROM node:21-alpine
