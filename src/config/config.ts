@@ -6,7 +6,7 @@ const Config = {
   serverPort: process.env.PORT as string,
   environment: process.env.NODE_ENV as string,
   mongo: {
-    url: process.env.MONGO_URL as string,
+    url: process.env.MONGO_URL || 'mongodb://mongo:27017/softallaince' as string,
   },
   JWTHeader: {
     secret: process.env.JWT_SECRET  || 'defaultSecret',
