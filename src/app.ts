@@ -35,11 +35,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 // create a write stream (in append mode)
 const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' })
  
-if (process.env.NODE_ENV === 'production') {
-  app.use(morgan('combined', { stream: accessLogStream }))
-} else {
+// if (process.env.NODE_ENV === 'production') {
+//   app.use(morgan('combined', { stream: accessLogStream }))
+// } else {
   app.use(morgan('dev'))
-}
+// }
 
 app.get("/", (_req: Request, res: Response) => {
   res.redirect("/api/v1/softallaince-api");

@@ -11,3 +11,7 @@ export interface IUserResult {
     token?: string;
   }
   
+  export interface IUserDocument extends IUser, Document {
+    matchPassword(enteredPassword: string): Promise<boolean>;
+  }
+  

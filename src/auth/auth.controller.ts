@@ -36,6 +36,47 @@ class AuthController {
           });
         }
       };
+
+    /**
+     * @route POST api/v1/auth/login
+     * @desc User Public
+     * @access Public
+     * @async
+     */
+  
+    loginUser = async (req: Request, res: Response, next: NextFunction) => {
+        try {
+            const { email, password } = req.body;
+            
+            if (!email || !password) {
+                return res.status(400).json({
+                  message: "Email and password are required",
+                });
+              }
+              
+          const result = await this.AuthService.loginUser(email, password);
+      
+          if (result.success) {
+            return res.status(201).json({
+              message: result.message,
+              token: result.token,
+            });
+          } else {
+            return res.status(400).json({
+              message: result.message,
+            });
+          }
+        } catch (error) {
+          console.error("Error logging in user:", error);
+          return res.status(500).json({
+            message: "Internal Server Error",
+            success: false,
+          });
+        }
+      };
+
+
+
       
 }
 
