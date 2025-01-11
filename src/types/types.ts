@@ -3,6 +3,8 @@ export interface IUser {
     username: string;
     password?: string;
     phone: string;
+    resetPasswordToken: string | null;
+    resetPasswordExpires: Date | null;
   }
   
 export interface IUserResult {
@@ -13,5 +15,6 @@ export interface IUserResult {
   
   export interface IUserDocument extends IUser, Document {
     matchPassword(enteredPassword: string): Promise<boolean>;
+    generatePasswordResetToken(): string; 
   }
   

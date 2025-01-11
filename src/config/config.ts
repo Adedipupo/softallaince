@@ -15,6 +15,19 @@ const Config = {
     algorithm: process.env.JWT_ALGORITHM,
     expires: process.env.JWT_EXPIRES,
   },
+  Email:{
+    host: process.env.EMAIL_HOST,
+    port: process.env.EMAIL_PORT,
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASSWORD,
+    }
+  },
+  BaseUrl :{
+    frontend: process.env.CLIENT_BASE_URL,
+    backend: process.env.BASE_URL_BACKEND,
+  }
+
 };
 
 
