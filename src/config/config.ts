@@ -15,6 +15,11 @@ const Config = {
     algorithm: process.env.JWT_ALGORITHM,
     expires: process.env.JWT_EXPIRES,
   },
+  PAYSTACK: {
+    secret: process.env.PAYSTACK_SECRET_KEY,
+    key: process.env.PAYSTACK_PUBLIC_KEY,
+    webhook: process.env.PAYSTACK_WEBHOOK_SECRET
+  },
   Email:{
     host: process.env.EMAIL_HOST,
     port: process.env.EMAIL_PORT,

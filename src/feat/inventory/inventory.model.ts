@@ -6,6 +6,7 @@ export interface IInventory extends Document {
   quantity: number;
   price: number;
   createdBy?: string;  
+  paymentStatus?: "paid" | "unpaid";
 }
 
 const inventorySchema = new Schema<IInventory>(
@@ -15,6 +16,7 @@ const inventorySchema = new Schema<IInventory>(
     quantity: { type: Number, required: true, min: 0 },
     price: { type: Number, required: true, min: 0 },
     createdBy: { type: Schema.Types.ObjectId, ref: "User", required: true },
+    paymentStatus: { type: String, enum: ["paid", "unpaid"], default: "unpaid" }
   },
   { timestamps: true }
 );
